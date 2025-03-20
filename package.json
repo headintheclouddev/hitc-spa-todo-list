@@ -1,0 +1,19 @@
+{
+  "name": "hitc-spa-todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "suitecloud.config.js",
+  "devDependencies": {
+    "@hitc/netsuite-types": "^2025.1.8",
+    "@oracle/netsuite-uif-types": "^7.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "gulp": "^5.0.0",
+    "gulp-typescript": "^5.0.1",
+    "rollup": "^4.24.0",
+    "typescript": "^5.8.2"
+  },
+  "scripts": {
+    "bundle": "gulp bundle"
+  },
+  "private": true
+}

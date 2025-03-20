@@ -1,0 +1,14 @@
+<singlepageapp scriptid="custspa_hitc_spa_todo_list">
+  <name>HITC Todo List</name>
+  <description>Based loosely on "Learn React Hooks" chapter 12 - ToDo List Redux</description>
+  <url>hitc-todo-list</url>
+  <folder>[/SuiteApps/com.headintheclouddev.hitctodospa/spa/]</folder>
+  <clientscriptfile>[/SuiteApps/com.headintheclouddev.hitctodospa/spa/SpaClient.js]</clientscriptfile>
+  <serverscriptfile>[/SuiteApps/com.headintheclouddev.hitctodospa/spa/SpaServer.js]</serverscriptfile>
+  <assetsfolder>[/SuiteApps/com.headintheclouddev.hitctodospa/spa/assets/]</assetsfolder>
+  <loglevel>DEBUG</loglevel>
+  <audienceallroles>F</audienceallroles>
+  <audienceroles></audienceroles>
+  <executeas></executeas>
+  <usesuif>T</usesuif>
+</singlepageapp>
