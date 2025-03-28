@@ -1,3 +1,5 @@
+import { fetchAPITodos} from "./api";
+
 // This is a list of possible actions.  The reducer(s) take a state, apply one of these actions, and return a new state.
 export const ActionType = {
   ADD_TODO: Symbol('addToDo'),
@@ -14,12 +16,11 @@ export const Action = {
     return { type: ActionType.ADD_TODO, newId, title };
   },
   fetchToDo() {
-    // TODO: Look up tasks from NetSuite
-    const todos = [
-      { title: "Create placeholder components", completed: true,  id: '1' },
-      { title: "Implement state management",    completed: false, id: '2' }
-    ];
-    return { type: ActionType.FETCH_TODOS, todos };
+    return async (dispatch: any) => {
+      const todos = await fetchAPITodos();
+      dispatch({ type: ActionType.FETCH_TODOS, todos })
+    }
+    // return { type: ActionType.FETCH_TODOS, todos };
   },
   toggleToDo(id: string) {
     // TODO: Update task status in NetSuite
