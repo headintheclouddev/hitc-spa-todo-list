@@ -22,3 +22,23 @@ export async function apiCreateTaskRecord(title: string) {
   const taskId = await taskRecord.save.promise();
   return String(taskId);
 }
+
+export async function apiToggleTaskCompleted(taskId: string) {
+  const taskQuery = await query.runSuiteQL.promise({ query: `SELECT status FROM task WHERE id = ${taskId}` });
+  const results: { status: 'NOTSTART'|'PROGRESS'|'COMPLETE' }[] = taskQuery.asMappedResults() as any;
+  record.submitFields.promise({
+    type: 'task',
+    id: taskId,
+    values: { status: results[0].status == 'COMPLETE' ? 'PROGRESS' : 'COMPLETE' }
+  }).then((id) => {
+    console.log('apiUpdateTaskCompleted - task updated', id, new Date());
+  }).catch((err) => {
+    alert(err); // Is there a UIF alert?
+  });
+}
+
+export function apiDeleteTask(taskId: string) {
+  record.delete.promise({ type: 'task', id: taskId }).then(() => {
+    console.log('apiDeleteTask - task deleted successfully', taskId, new Date());
+  });
+}
