@@ -1,11 +1,12 @@
 import {JSX, Store, useEffect, useMemo, useState} from "@uif-js/core";
 import log from 'N/log';
-import { Heading, StackPanel } from "@uif-js/component";
+import { StackPanel } from "@uif-js/component";
 import Header from "./Header";
 import appReducer from "./reducers";
 import TodoList from "./TodoList";
 import { Action } from './actions';
 import AddTodo from "./AddTodo";
+import TodoFilter from "./TodoFilter";
 
 const INITIAL_STATE = { todos: [], filter: 'all' };
 
@@ -32,18 +33,10 @@ export default function App(): JSX.Element {
   return (
     <Store.Provider store={store}>
       <StackPanel alignment={StackPanel.Alignment.START} orientation={StackPanel.Orientation.VERTICAL}>
-        <StackPanel.Item>
-          <Header />
-        </StackPanel.Item>
-        <StackPanel.Item>
-          <AddTodo />
-        </StackPanel.Item>
-        <StackPanel.Item>
-          <TodoList />
-        </StackPanel.Item>
-        <StackPanel.Item>
-          <Heading>(filter)</Heading>
-        </StackPanel.Item>
+        <StackPanel.Item><Header /></StackPanel.Item>
+        <StackPanel.Item><AddTodo /></StackPanel.Item>
+        <StackPanel.Item><TodoList /></StackPanel.Item>
+        <StackPanel.Item><TodoFilter /></StackPanel.Item>
       </StackPanel>
     </Store.Provider>
   );
