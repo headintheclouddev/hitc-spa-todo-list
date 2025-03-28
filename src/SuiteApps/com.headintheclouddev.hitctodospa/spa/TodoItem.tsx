@@ -1,14 +1,18 @@
-import { JSX, SystemIcon } from '@uif-js/core';
+import { JSX, SystemIcon, useDispatch } from '@uif-js/core';
 import { Button, CheckBox } from "@uif-js/component";
+import {Action} from './actions';
 
 export default function TodoItem(props: IToDo): JSX.Element {
+  const dispatch = useDispatch();
+
   function handleToggle(event: { value: boolean, previousValue: boolean, reason: string }): void {
     if (event.reason != 'click') return; // This seems to fire every time the component draws!
     console.log('handleToggle - now', event.value, 'was', event.previousValue, 'at', new Date());
+    dispatch(Action.toggleToDo(props.id));
   }
 
   function handleRemove() {
-    console.log('TODO: Implement task deletion');
+    dispatch(Action.removeToDo(props.id));
   }
 
   return (
