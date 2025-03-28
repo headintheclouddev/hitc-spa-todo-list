@@ -1,5 +1,6 @@
 import {IToDo} from "./TodoItem";
 import query from 'N/query';
+import record from 'N/record';
 import runtime from 'N/runtime';
 
 export async function fetchAPITodos(): Promise<IToDo[]> {
@@ -12,4 +13,12 @@ export async function fetchAPITodos(): Promise<IToDo[]> {
   }
 
   return todos;
+}
+
+export async function apiCreateTaskRecord(title: string) {
+  const taskRecord = await record.create.promise({ type: 'task' });
+  taskRecord.setValue('title', title);
+  taskRecord.setValue('assigned', runtime.getCurrentUser().id);
+  const taskId = await taskRecord.save.promise();
+  return String(taskId);
 }

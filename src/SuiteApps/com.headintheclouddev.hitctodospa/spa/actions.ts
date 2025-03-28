@@ -1,4 +1,4 @@
-import { fetchAPITodos} from "./api";
+import { fetchAPITodos, apiCreateTaskRecord } from "./api";
 
 // This is a list of possible actions.  The reducer(s) take a state, apply one of these actions, and return a new state.
 export const ActionType = {
@@ -12,8 +12,10 @@ export const ActionType = {
 // Action creator functions handle possible side effects (such as CRUD operations), so that the reducer function can be pure.
 export const Action = {
   addToDo(title: string) {
-    const newId = '0'; // TODO: Create task record in NetSuite
-    return { type: ActionType.ADD_TODO, newId, title };
+    return async (dispatch: any) => {
+      const id = await apiCreateTaskRecord(title);
+      dispatch({ type: ActionType.ADD_TODO, id, title });
+    }
   },
   fetchToDo() {
     return async (dispatch: any) => {
