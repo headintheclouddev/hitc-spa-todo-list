@@ -3,6 +3,7 @@ import { Button, CheckBox } from "@uif-js/component";
 
 export default function TodoItem(props: IToDo): JSX.Element {
   function handleToggle(event: { value: boolean, previousValue: boolean, reason: string }): void {
+    if (event.reason != 'click') return; // This seems to fire every time the component draws!
     console.log('handleToggle - now', event.value, 'was', event.previousValue, 'at', new Date());
   }
 
