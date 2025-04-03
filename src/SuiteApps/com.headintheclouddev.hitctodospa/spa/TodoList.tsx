@@ -1,10 +1,10 @@
-import { IToDo } from './TodoItem';
 import TodoItem from './TodoItem';
-import { JSX, useMemo, useSelector } from "@uif-js/core"; // Page 339
+import { JSX, useMemo, useSelector } from "@uif-js/core";
+import {IAppState} from "./App"; // Page 339
 
 export default function TodoList(): JSX.Element {
-  const filter = useSelector((state: { filter: string }) => state.filter);
-  const todos = useSelector((state: { todos: IToDo[] }) => state.todos); // Page 339
+  const filter = useSelector((state: IAppState) => state.filter);
+  const todos = useSelector((state: IAppState) => state.todos); // Page 339
 
   const filteredTodos = useMemo(() => {
     console.log('TodoList - filteredTodos', filter, todos);

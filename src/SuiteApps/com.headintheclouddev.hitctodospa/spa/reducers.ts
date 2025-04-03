@@ -1,9 +1,10 @@
 import { ActionType } from './actions';
 import { IToDo } from './TodoItem';
+import {IAppState} from "./App";
 
 // Reducers take a state, apply an action, and return a new state
 
-export default function appReducer(state: { todos: IToDo[], filter: string }, action: any) {
+export default function appReducer(state: IAppState, action: any) {
   return {
     todos: todosReducer(state.todos, action),
     filter: filterReducer(state.filter, action)

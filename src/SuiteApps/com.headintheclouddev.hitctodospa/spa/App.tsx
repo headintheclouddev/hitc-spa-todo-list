@@ -7,8 +7,9 @@ import TodoList from "./TodoList";
 import { Action } from './actions';
 import AddTodo from "./AddTodo";
 import TodoFilter from "./TodoFilter";
+import {IToDo} from "./TodoItem";
 
-const INITIAL_STATE = { todos: [], filter: 'all' };
+const INITIAL_STATE: IAppState = { todos: [], filter: 'all' }; // Is it better to have this as a global variable, or declare it inside the component below?
 
 export default function App(): JSX.Element {
   log.debug('App', `Initializing at ${new Date()}`);
@@ -40,4 +41,9 @@ export default function App(): JSX.Element {
       </StackPanel>
     </Store.Provider>
   );
+}
+
+export interface IAppState {
+  todos: IToDo[];
+  filter: string;
 }

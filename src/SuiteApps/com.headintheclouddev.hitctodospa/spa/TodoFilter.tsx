@@ -1,9 +1,10 @@
 import {Action} from "./actions";
 import { JSX, useDispatch, useSelector } from "@uif-js/core";
+import {IAppState} from "./App";
 
 function TodoFilterItem(props: { name: string }): JSX.Element { // This represents a single filter option (all, active, or completed)
   const dispatch = useDispatch();
-  const filter = useSelector((state: { filter: string }) => state.filter); // This is the currently set filter
+  const filter = useSelector((state: IAppState) => state.filter); // This is the currently set filter
 
   function handleFilter(): void {
     console.log('handleFilter', props.name);
