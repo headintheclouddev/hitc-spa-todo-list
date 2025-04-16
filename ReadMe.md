@@ -2,7 +2,7 @@
 
 ## Summary
 This NetSuite Single Page Application (SPA) is based loosely on "Learn React Hooks" chapter 12 - Todo List Redux.
-The walkthrough video for this project is here: (coming in April 2025)
+The walkthrough video for this project is here: https://www.youtube.com/watch?v=2XW2BZtRzZ8
 
 ## SPA Lessons learned:
 1. Always (as much as possible) use UIF components rather than standard HTML elements.
